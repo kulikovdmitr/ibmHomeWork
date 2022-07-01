@@ -1,21 +1,23 @@
-package secondExercise;
+package exercise2;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import java.awt.desktop.SystemEventListener;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
-
-/**
- * https://stackoverflow.com/questions/53039551/selenium-webdriver-modifying-navigator-webdriver-flag-to-prevent-selenium-detec
- */
 
 public class AuthInGoogleTest extends SeleniumConfiguration {
 
     final String GOOGLE_LOGIN = "dmtrmsc";
     final String GOOGLE_PASSWORD = "@googleAccountPassword!";
+    final String SEARCH_QUERY = "merative+application";
 
     @Test
     public void authInGoogleTest() throws IOException {
@@ -24,7 +26,7 @@ public class AuthInGoogleTest extends SeleniumConfiguration {
 
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 
-        //Act
+        //Precondition
         driver.get("https://accounts.google.com");
         driver.switchTo().window(tabs.get(0));
 
@@ -38,6 +40,19 @@ public class AuthInGoogleTest extends SeleniumConfiguration {
 
         authGooglePage.passwordNextButtonClick();
 
+        //Act
+        driver.get("https://www.google.com/search?q=" + SEARCH_QUERY);
+
+//        String s = t.getCssValue("color");
+//        String c = Color.fromString(s).asHex();
+//
+//        System.out.println(c);
+//        System.out.println(t.getText());
+
+
+        WebElement element = driver.findElement(By.cssSelector("#search h3"));
+
+        List<WebElement> myList= element.findElements(By.cssSelector("#search h3"));
         //Assert
     }
 }
