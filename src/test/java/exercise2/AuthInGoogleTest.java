@@ -2,11 +2,8 @@ package exercise2;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-
-import java.awt.desktop.SystemEventListener;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
@@ -48,7 +45,6 @@ public class AuthInGoogleTest extends SeleniumConfiguration {
 //
 //        System.out.println(c);
 //        System.out.println(t.getText());
-
 
         WebElement element = driver.findElement(By.cssSelector("#search h3"));
 

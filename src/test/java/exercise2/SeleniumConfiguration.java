@@ -1,7 +1,6 @@
 package exercise2;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverLogLevel;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -33,14 +32,10 @@ public class SeleniumConfiguration  {
         chromeOptions.setExperimentalOption("useAutomationExtension", false);
         chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
         chromeOptions.addArguments("--user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36");
-
         chromeOptions.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 
         driver = new RemoteWebDriver(new URL("http://localhost:4441/wd/hub"), chromeOptions);
         //For local run   => driver = new ChromeDriver(chromeOptions);
-
-        //driver = new ChromeDriver(chromeOptions);
-
         chromeOptions.setLogLevel(ChromeDriverLogLevel.DEBUG);
     }
 
