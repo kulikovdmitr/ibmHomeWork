@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  chrome:
+    image: selenium/standalone-chrome:4.3.0
+    hostname: chrome
+    privileged: true
+    shm_size: 2g
+    ports:
+      - "4444:4444"
+      - "7900:7900"
